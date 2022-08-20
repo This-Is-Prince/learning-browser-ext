@@ -1,17 +1,19 @@
 console.log("Chrome extension go");
 
-document.addEventListener("mouseup", (event) => {
+document.addEventListener("mouseup", async (event) => {
+  console.log(event);
   if (window.getSelection().toString().length) {
     let exactText = window.getSelection().toString();
-    const p = document.createElement("p");
-    p.innerHTML = exactText;
-    document.body.appendChild(p);
-    p.style["width"] = "100vw";
-    p.style["height"] = "100vh";
-    p.style["position"] = "fixed";
-    p.style["inset"] = "0";
-    p.style["zIndex"] = "99999";
-    p.style["backgroundColor"] = "red";
+    try {
+      const iFrame = document.createElement('iframe');
+      iFrame.src=`https://www.vocabulary.com/dictionary/${exactText}`;
+      iFrame.title=`${exactText} word page`
+      iFrame.width=400
+      iFrame.height=400
+      document.body.appendChild(iFrame);
+    } catch (error) {
+      console.error(error)
+    }
   }
 });
 
