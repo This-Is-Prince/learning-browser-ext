@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Popup",
+    "version": "1.0",
+    "description": "Popup script example",
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content/index.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_icon": "assets/khaleesi.png",
+        "default_popup": "popup/index.html",
+        "default_title": "A popup will come here."
+    },
+    "permissions": [
+        "tabs"
+    ]
+}
