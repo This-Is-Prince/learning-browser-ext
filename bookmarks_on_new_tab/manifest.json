@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Bookmarks on New Tab",
+  "version": "1.0",
+  "description": "Showing all bookmarks on new tab",
+  "chrome_url_overrides": {
+    "newtab": "newtab/index.html"
+  },
+  "permissions": ["bookmarks", "favicon"]
+}
